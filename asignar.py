@@ -21,9 +21,9 @@ def asignarTurno(tramite):
         actualizarLista()
 
 def siguienteTurno():
+    global turnoActual
     if turnos:
         turnoActual = str(turnos.pop(0))
-        print(turnoActual)
         actualizarLista()
     else:
         turnoActual = "Ninguno"
