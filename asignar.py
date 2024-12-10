@@ -1,7 +1,7 @@
 import tkinter as tk
 
 try:
-    root = tk.default_root
+    root = tk._default_root
     if root is None:
         root=tk.Tk()
         root.withdraw()
@@ -9,7 +9,7 @@ except AttributeError:
     root = tk.Tk()
     root.withdraw()
 
-turnoActual = tk.StringVar(value="Ninguno")
+turnoActual = "Ninguno"
 turnos = []
 listaTurnos = None
 
@@ -22,10 +22,12 @@ def asignarTurno(tramite):
 
 def siguienteTurno():
     if turnos:
-        turnoActual.set(turnos.pop(0))
+        turnoActual = str(turnos.pop(0))
+        print(turnoActual)
         actualizarLista()
     else:
-        turnoActual.set("Niguno")
+        turnoActual = "Ninguno"
+    return turnoActual
 
 def actualizarLista():
     if listaTurnos:
